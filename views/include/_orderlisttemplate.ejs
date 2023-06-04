@@ -1,0 +1,15 @@
+ <tr>
+    <td><%=order.id%></td>
+    <td><%=order.createdAt.toISOString().split('T')[0]%></td>
+    <td><%=order.book.name%></td>
+    <td> <%= order.info.booktype %></td>
+    <td><% if(order.info.booktype == 'Original Book'){ %><%=order.price +".Rs"%>
+      <% } else{ %><%=(order.price + 10) +".Rs"%><% } %></td>
+      <td><%=order.price +".Rs"%></td>
+    <% let checkPaid =order.paid %> <% if(checkPaid===true){ %>
+    <td>Paid</td>
+    <% } else{ %>
+    <td>Unpaid</td>
+    <% } %>
+  </tr>
+

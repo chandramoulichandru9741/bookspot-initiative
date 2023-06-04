@@ -1,0 +1,155 @@
+  <%- include('../include/_header') %>
+
+    <!-- thanh "danh muc sach" đã được ẩn bên trong + hotline + ho tro truc tuyen -->
+    <%- include('../include/_cartgory') %>
+    <!-- breadcrumb  -->
+   
+
+    <!-- nội dung của trang  -->
+    <section class="product-page mb-4">
+        <div class="container">
+            <!-- chi tiết 1 sản phẩm -->
+            <div class="product-detail bg-white p-4">
+                <div class="row">
+                    <!-- ảnh  -->
+                   <%-include ('../include/_reviewtemplate') %> 
+
+                    <!-- decripstion của 1 sản phẩm: giới thiệu , đánh giá độc giả  -->
+                    <div class="product-description col-md-9">
+                        <!-- 2 tab ở trên  -->
+                        <!-- <nav>
+                            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                <a class="nav-item nav-link active text-uppercase" id="nav-gioithieu-tab"
+                                    data-toggle="tab" href="#nav-gioithieu" role="tab" aria-controls="nav-gioithieu"
+                                    aria-selected="true">Introduce</a>
+                                <a class="nav-item nav-link text-uppercase" id="nav-danhgia-tab" data-toggle="tab"
+                                    href="#nav-danhgia" role="tab" aria-controls="nav-danhgia"
+                                    aria-selected="false">Readers' Reviews
+                                    </a>
+                            </div>
+                        </nav> -->
+                        <!-- nội dung của từng tab  -->
+                        <div class="tab-content" id="nav-tabContent">
+                            <div class="tab-pane fade show active ml-3" id="nav-gioithieu" role="tabpanel"
+                                aria-labelledby="nav-gioithieu-tab">
+                                <h6 class="tieude font-weight-bold"><%=book.name%></h6>
+                               <p><%= reviewOfoneBook.introduction%></p>
+                            </div>
+                            <% if (user) { %>
+                            <div class="tab-pane fade" id="nav-danhgia" role="tabpanel" aria-labelledby="nav-danhgia-tab">
+                                <div class="row">
+                                    <div class="col-md-3 text-center">
+                                        <p class="tieude">Average rating</p>
+                                        <div class="diem">0/5</div>
+                                        <div class="sao">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </div>
+                                        <p class="sonhanxet text-muted">(0 comment)</p>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <div class="tiledanhgia text-center">
+                                            <div class="motthanh d-flex align-items-center">5 <i class="fa fa-star"></i>
+                                                <div class="progress mx-2">
+                                                    <div class="progress-bar" role="progressbar" aria-valuenow="0"
+                                                        aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div> 0%
+                                            </div>
+                                            <div class="motthanh d-flex align-items-center">4 <i class="fa fa-star"></i>
+                                                <div class="progress mx-2">
+                                                    <div class="progress-bar" role="progressbar" aria-valuenow="0"
+                                                        aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div> 0%
+                                            </div>
+                                            <div class="motthanh d-flex align-items-center">3 <i class="fa fa-star"></i>
+                                                <div class="progress mx-2">
+                                                    <div class="progress-bar" role="progressbar" aria-valuenow="0"
+                                                        aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div> 0%
+                                            </div>
+                                            <div class="motthanh d-flex align-items-center">2 <i class="fa fa-star"></i>
+                                                <div class="progress mx-2">
+                                                    <div class="progress-bar" role="progressbar" aria-valuenow="0"
+                                                        aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div> 0%
+                                            </div>
+                                            <div class="motthanh d-flex align-items-center">1 <i class="fa fa-star"></i>
+                                                <div class="progress mx-2">
+                                                    <div class="progress-bar" role="progressbar" aria-valuenow="0"
+                                                        aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div> 0%
+                                            </div>
+                                            <div class="btn vietdanhgia mt-3">Write your review</div>
+                                        </div>
+                                        <!-- the content of the evaluation form  -->
+                                        <form class="formdanhgia" action="/api/v1/comments/<%=book.id%>" method="post">
+                                            <h6 class="tieude text-uppercase">SEND YOUR REVIEW</h6>
+                                            <span class="danhgiacuaban">Your rating for this product:</span>
+                                            <div class="rating d-flex flex-row-reverse align-items-center justify-content-end">
+                                                <input type="radio" name="star" id="star1"><label for="star1"></label>
+                                                <input type="radio" name="star" id="star2"><label for="star2"></label>
+                                                <input type="radio" name="star" id="star3"><label for="star3"></label>
+                                                <input type="radio" name="star" id="star4"><label for="star4"></label>
+                                                <input type="radio" name="star" id="star5"><label for="star5"></label>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text" class="txtComment w-100" name="content" placeholder="Your review for this product">
+                                            </div>
+                                            <button type="submit" class="btn nutguibl">Submit a comment</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <%  } else{ %>
+                                <% } %>
+                            <!-- het tab nav-danhgia  -->
+                        </div> 
+                        <!-- het tab-content  -->
+                             <!-- <div class="review-content comment-content" id="commentContent">
+
+
+                 <%# \commentBook.forEach(function(comment){ %>  
+                 <%#       include('../include/_comment',{comment}) %> 
+                 <%#        }); %> 
+                             
+                                             
+                           
+                        </div> -->
+                    </div>
+                    <!-- het product-description -->
+                </div>
+                <!-- het row  -->
+            </div>
+            <!-- het product-detail -->
+        </div>
+        <!-- het container  -->
+    </section>
+    <!-- het product-page -->
+
+    <!--Similar product blocks -->
+    <!-- <section class="_1khoi sachmoi">
+        <div class="container">
+            <div class="noidung bg-white" style=" width: 100%;">
+                <div class="row">
+                    header
+                    <div class="col-12 d-flex justify-content-between align-items-center pb-2 bg-light pt-4">
+                        <h5 class="header text-uppercase" style="font-weight: 400;">Similar product</h5>
+                        
+                    </div>
+                </div>
+                <div class="khoisanpham" style="padding-bottom: 2rem;">
+                     1 product -->
+                     <!--foreach
+                    <% bookSimilar.forEach(book=>{%>
+                        <%- include('../include/_booktemplate',{book}) %> 
+                   <% }) %>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    
+<%- include('../include/_footer') %>

@@ -1,0 +1,65 @@
+
+<div class="col-12 cart">
+    <div class="cart-content py-3 pl-3">
+        <h6 class="header-gio-hang">Your cart<span></span></h6>
+        <div class="cart-list-items">
+            <div class="cart-item d-flex">
+                <a href="#" class="img">
+                    <img src="/images/<%=book.img%>" class="img-fluid" alt="<%=book.name%>">
+                </a>
+                <div class="item-caption d-flex w-100">
+                    <div class="item-info ml-3">
+                        <a href="#" class="ten"><%=book.name%></a>
+                        <div class="soluong d-flex">
+                            <div class="input-number input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text btn-spin btn-dec">-</span>
+                                </div>
+                                <input id="quant" type="text" value="1" class="soluongsp  text-center">
+                                <div class="input-group-append">
+                                    <span class="input-group-text btn-spin btn-inc" >+</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item-price ml-auto d-flex flex-column align-items-end">
+                        <div class="giamoi"><%= "Rs." + book.priceafterSale %></div>
+                        <div class="giacu"><%= "Rs." + book.price %></div>
+                        <form method="post" action="/api/v1/carts/<%=book.id +"?_method=DELETE"%>" >
+                        <button type="submit" class="remove mt-auto"  ><i class="far fa-trash-alt"></i></button>
+                        </form>
+                    </div>
+                </div>
+                
+            </div>
+            <hr>
+        </div> 
+         <div class="row">
+            <div class="col-md-3">
+                <!-- // id="payment"  data-book-id="<%#=book.id%>"-->
+                <a href="/checkout-order/<%=book.id%>"  class="btn nutmuathem mb-3" >Ordered</a> 
+            </div>
+            <div class="col-md-5 offset-md-4">
+                <div class="tonggiatien">
+                    <div class="group d-flex justify-content-between">
+                        <p class="label">Provisional:</p>
+                        <p class="tamtinh"><%="Rs." + book.priceafterSale %></p>
+                    </div>
+                   
+                    <div class="group d-flex justify-content-between">
+                        <p class="label">Transport fee:</p>
+                        <p class="phivanchuyen">Rs.0</p>
+                    </div>
+                   
+                    <div class="group d-flex justify-content-between align-items-center">
+                        <strong class="text-uppercase">Total:</strong>
+                        <p class="tongcong"><%=    book.priceafterSale  + ".Rs" %></p>
+                    </div>
+                    <small class="note d-flex justify-content-end text-muted">
+                        <!-- (Prices include TAX) -->
+                    </small>
+                </div>
+            </div>
+        </div> 
+    </div>
+</div>

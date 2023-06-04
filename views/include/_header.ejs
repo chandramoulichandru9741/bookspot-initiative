@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>The Book Spot</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/<%=style%>.css">
+<link rel="stylesheet" href="/fontawesome_free_5.13.0/css/all.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+    rel="stylesheet">
+
+<link rel="stylesheet" type="text/css" href="/slick/slick.css" />
+<link rel="stylesheet" type="text/css" href="/slick/slick-theme.css" />
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+ <link rel="apple-touch-icon" sizes="76x76" href="/images/apple-icon.png">
+  <link rel="icon" type="image/png" href="/images/icon.png">
+</head>
+
+<body>
+
+<!-- header -->
+<nav class="navbar navbar-expand-md bg-white navbar-light">
+    <div class="container">
+        <!-- logo  -->
+        <a class="navbar-brand" href="/" style="color: #1a94ff;">The Book Spot</a>
+
+        <!-- navbar-toggler  -->
+        <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse"
+            data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
+            aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+            <!-- form search  -->
+            <form class="form-inline ml-auto my-2 my-lg-0 mr-3" action="/search" method="get" id="search">
+                <div class="input-group" style="width: 520px;">
+                    <input type="text" class="form-control" aria-label="Small" id="inputSearch"
+                        placeholder="Enter the book you want to search..." name="name">
+                    <div class="input-group-append">
+                        <button type="submit" class="btn" style="background-color: #1a94ff; color: white;">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+            <!-- login box to register cart on header  -->
+            <ul class="navbar-nav mb-1 ml-auto">
+                   <!-- neu ton tai user thi` -->
+                   <% if (user) { %>
+                    <div class="">
+                        <li class="nav-item account d-flex ifuser" type="button" class="" data-toggle="">
+                        <% if (user.photo){ %>
+                            <img src="/images/<%=user.photo%>" style=" height: 40px;
+                            width: 40px;
+                            border-radius: 50%;" >
+                            <a href="/account"></a></img>
+                            <%  } else{ %>
+                                <a href="/account" class="btn btn-secondary rounded-circle">
+                                    <i class="fa fa-user"></i>
+                                </a>
+                            <% } %>
+                            <div class="info-logout">
+                                <a class="nav-link text-dark text-uppercase username" href="/account"><%= user.name %></a>
+                                
+                                    <a type="submit" class="nav-link text-dark logout" id="logout" >Log out <i class="fas fa-sign-out-alt"></i></a>  
+                            </div>
+                        </li>
+                    </div>
+                    <li class="nav-item giohang">
+                        <a href="/cart" class="btn btn-secondary rounded-circle">
+                            <i class="fa fa-shopping-cart"></i>
+                            <% if (title==='Your cart') { %>
+                            <div class="cart-amount"><%=bookInfo.length%></div>
+                            <%  } else{ %>
+                            <!-- <div class="cart-amount">0</div> -->
+                            <% } %>
+                        </a>
+                        <a class="nav-link text-dark giohang text-uppercase" href="/cart"
+                            style="display:inline-block">Cart
+                            </a>
+                    </li>
+                    
+                <%  } else{ %>
+                 <!-- If there is no user input, please change the settings`-->
+                <div class="dropdown">
+                    <li class="nav-item account" type="button" class="btn dropdown" data-toggle="dropdown">
+                        <a href="#" class="btn btn-secondary rounded-circle">
+                            <i class="fa fa-user"></i>
+                        </a>
+                        <a class="nav-link text-dark text-uppercase" href="#" style="display:inline-block">Account
+                            </a>
+                    </li>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item nutdangky text-center mb-2" href="#" data-toggle="modal"
+                            data-target="#formdangky">Register</a>
+                        <a class="dropdown-item nutdangnhap text-center" href="#" data-toggle="modal"
+                            data-target="#formdangnhap">Log in</a>
+                    </div>
+                </div>
+                
+                <div class="dropdown">
+                    <li class="nav-item account" type="button" class="btn dropdown" data-toggle="dropdown">
+                        <a href="#" class="btn btn-secondary rounded-circle">
+                            <i class="fa fa-shopping-cart"></i>
+                            <!-- <div class="cart-amount">0</div> -->
+                        </a>
+                        <a class="nav-link text-dark text-uppercase" href="#" style="display:inline-block">Cart
+                            </a>
+                    </li>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item nutdangky text-center mb-2" href="#" data-toggle="modal"
+                            data-target="#formdangky">Register</a>
+                        <a class="dropdown-item nutdangnhap text-center" href="#" data-toggle="modal"
+                            data-target="#formdangnhap">Log in</a>
+                    </div>
+                </div>
+                <% } %>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<!-- form dang ky khi click vao button tren header-->
+<div class="modal fade mt-5" id="formdangky" data-backdrop="static" tabindex="-1" aria-labelledby="dangky_tieude"
+    aria-hidden="true">
+    <div class="modal-dialog ">
+        <div class="modal-content">
+            <div class="modal-header">
+                <ul class="tabs d-flex justify-content-around list-unstyled mb-0">
+                    <li class="tab tab-dangnhap text-center">
+                        <a class=" text-decoration-none">Log in</a>
+                        <hr>
+                    </li>
+                    <li class="tab tab-dangky text-center">
+                        <a class="text-decoration-none">Register</a>
+                        <hr>
+                    </li>
+                </ul>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="form-signup" class="form-signin mt-2" >
+                    <div class="form-label-group">
+                        <input type="text" class="form-control" id="name--signup" placeholder="Enter your first and last name" name="name" required
+                            autofocus>
+                    </div>
+                   
+                    <div class="form-label-group">
+                        <input type="email" class="form-control" id="email--signup" placeholder="Enter your email address" name="email"
+                            required>
+                    </div>
+                    <div class="form-label-group">
+                        <input type="password" class="form-control" id="password--signup" placeholder="Enter password" name="password"
+                            required>
+                    </div>
+                    <div class="form-label-group mb-4">
+                        <input type="password" class="form-control" id="passwordConfirm--signup" name="passwordConfirm"
+                            placeholder="Enter the password" required>
+                    </div>
+                    <button class="btn btn-lg btn-block btn-signin text-uppercase text-white mt-3" type="submit"
+                        style="background: #1a94ff">Register</button>
+                    <hr class="mt-3 mb-2">
+                    <!-- <div class="custom-control custom-checkbox">
+                        <p class="text-center">By registering, you agree to The Book Spot about</p>
+                        <a href="#" class="text-decoration-none text-center" style="color: #1a94ff">Terms of Service & Privacy Policy
+                            </a>
+                    </div> -->
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- form dang nhap khi click vao button tren header-->
+<div class="modal fade mt-5" id="formdangnhap" data-backdrop="static" tabindex="-1"
+    aria-labelledby="dangnhap_tieude" aria-hidden="true">
+    <div class="modal-dialog ">
+        <div class="modal-content">
+            <div class="modal-header">
+                <ul class="tabs d-flex justify-content-around list-unstyled mb-0">
+                    <li class="tab tab-dangnhap text-center">
+                        <a class=" text-decoration-none">Log in</a>
+                        <hr>
+                    </li>
+                    <li class="tab tab-dangky text-center">
+                        <a class="text-decoration-none">Register</a>
+                        <hr>
+                    </li>
+                </ul>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="form-signin" class="form-signin mt-2"  >
+                    <div class="form-label-group">
+                        <input type="email" class="form-control" id="email" placeholder="Enter your email address" name="email"
+                            required autofocus>
+                    </div>
+
+                    <div class="form-label-group">
+                        <input type="password" class="form-control" id="password" placeholder="Password" name="password" required>
+                    </div>
+
+                    <div class="custom-control custom-checkbox mb-3">
+                        
+                        <a href="/forget" class="float-right text-decoration-none" style="color: #1a94ff">Forgot password
+                            </a>
+                    </div>
+
+                    <button class="btn btn-lg btn-block btn-signin text-uppercase text-white" type="submit"
+                        style="background: #1a94ff">Log in</button>
+                   
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

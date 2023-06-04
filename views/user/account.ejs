@@ -1,0 +1,142 @@
+<%- include('../include/_header') %>
+<!-- form dang ky khi click vao button tren header-->
+<!-- thanh "danh muc sach" đã được ẩn bên trong + hotline + ho tro truc tuyen -->
+<%- include('../include/_cartgory') %>
+<!-- nội dung của trang  -->
+<section class="account-page my-3">
+  <div class="container">
+    <div class="page-content bg-white">
+      <div class="account-page-tab-content m-4">
+        <!-- 2 tab: thông tin tài khoản, danh sách đơn hàng  -->
+        <nav>
+          <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <a
+              class="nav-item nav-link active"
+              id="nav-taikhoan-tab"
+              data-toggle="tab"
+              href="#nav-taikhoan"
+              role="tab"
+              aria-controls="nav-home"
+              aria-selected="true"
+              >account information</a
+            >
+            <a
+              class="nav-item nav-link"
+              id="nav-donhang-tab"
+              data-toggle="tab"
+              href="#nav-donhang"
+              role="tab"
+              aria-controls="nav-profile"
+              aria-selected="false"
+              >Order List</a
+            >
+          </div>
+        </nav>
+
+        <!-- nội dung 2 tab -->
+        <div class="tab-content">
+          <!-- nội dung tab 1: thông tin tài khoản  -->
+          <div class="tab-pane fade show active pl-4" id="nav-taikhoan" role="tabpanel" aria-labelledby="nav-taikhoan-tab">
+            <div class="offset-md-4 mt-3">
+              <h3 class="account-header">account information</h3>
+            </div>
+            <form action="/updateMe" id="update">
+              <div class="hoten my-3">
+                <div class="row">
+                  <label class="col-md-2 offset-md-2" for="account-hoten">Full name</label>
+                  <input class="col-md-4" type="text" name="name" placeholder="<%=user.name %>" id="myname" />
+                </div>
+              </div>
+
+              <div class="email my-3">
+                <div class="row">
+                  <label class="col-md-2 offset-md-2" for="account-email">Email address</label>
+                  <input class="col-md-4" type="text" name="account-email" disabled="disabled" value="<%= user.email %>" />
+                </div>
+              </div>
+              <div class="">
+                <div class="row">
+                  <label class="col-md-2 offset-md-2" for="photo">Change avatar</label>
+                  <input class="col-md-4" type="file" accept="image/*" id="photo" name="photo" />
+                  <button
+                    type="submit"
+                    class="button-capnhat text-uppercase offset-md-4 btn btn-warning mb-4"
+                    style="margin-top: 20px"
+                  >
+                  Update
+                  </button>
+                </div>
+              </div>
+            </form>
+            <div class="checkbox-change-pass my-3">
+              <div class="row">
+                <input
+                  type="checkbox"
+                  name="changepass"
+                  id="changepass"
+                  class="offset-md-4"
+                  style="margin-top: 6px; margin-right: 5px"
+                />
+                <label for="changepass">Change the password</label>
+              </div>
+            </div>
+            <div class="thay-doi-mk">
+              <form id="update_password" action="/updatePasswordMe">
+                <div class="mkcu my-3">
+                  <div class="row">
+                    <label class="col-md-2 offset-md-2" for="account-mkcu">old password</label>
+                    <input class="col-md-4" type="text" id="password_current" />
+                  </div>
+                </div>
+                <div class="mkmoi my-3">
+                  <div class="row">
+                    <label class="col-md-2 offset-md-2" for="account-mkmoi">A new password</label>
+                    <input class="col-md-4" type="text" id="newpassword" />
+                  </div>
+                </div>
+                <div class="xacnhan-mkmoi my-3">
+                  <div class="row">
+                    <label class="col-md-2 offset-md-2" for="account-xacnhan-mkmoi">
+                      Confirm password</label>
+                    <input class="col-md-4" type="text" id="password_confirm" />
+                  </div>
+                </div>
+                <div class="capnhat my-3">
+                  <div class="row">
+                    <button type="submit" class="button-capnhat text-uppercase offset-md-4 btn btn-warning mb-4">
+                      Update
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <!-- nội dung tab 2: danh sách đơn hàng -->
+          <div class="tab-pane fade py-3" id="nav-donhang" role="tabpanel" aria-labelledby="nav-donhang-tab">
+            <div class="donhang-table">
+              <table class="m-auto" style="width: 100%">
+                <tr>
+                  <th>Code orders</th>
+                  <th>Purchase date</th>
+                  <th>
+                    Product</th>
+                    <th>Book Type</th>
+                    <th>Original Book amount</th>
+                  <th>
+                    Total amount</th>
+                  <th>
+                    Order Status</th>
+                </tr>
+                <% orderlist.forEach(function(order){ %> <%- include('../include/_orderlisttemplate',{order}) %> <% }); %>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- thanh cac dich vu :mien phi giao hang, qua tang mien phi ........ -->
+<%- include('../include/_footer') %>

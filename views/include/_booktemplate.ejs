@@ -1,0 +1,26 @@
+<div class="card">
+    <a href="/book/<%= book.slug%>" class="motsanpham"
+        style="text-decoration: none; color: black;" data-toggle="tooltip" data-placement="bottom">
+        <img class="card-img-top anh setHeight" src="/images/<%=book.img %>"
+            alt="<%= book.name %> ">
+        <div class="card-body noidungsp mt-3">
+            <h3 class="card-title ten bookname"><%= book.name  %>  </h3>
+            <small class="tacgia text-muted"><%= book.author %></small>
+            <div class="gia d-flex align-items-baseline">
+                <div class="giamoi"><%= "Rs." + book.priceafterSale %></div>
+                <div class="giacu text-muted"><%= "Rs." + book.price %></div>
+                <div class="sale"><%="-"+ book.percentSale +"%" %></div>
+            </div>
+            <div class="danhgia">
+                <ul class="d-flex" style="list-style: none;">
+                    <li class="active"></i></li>
+                    <li class="active"></i></li>
+                    <li class="active"></i></li>
+                    <li class="active"></i></li>
+                    <li></i></li>
+                    <li><span class="text-muted"><%= book.ratingsQuantity %></span></li>
+                </ul>
+            </div>
+        </div>
+    </a>
+</div>              

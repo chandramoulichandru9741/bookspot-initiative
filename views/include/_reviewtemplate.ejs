@@ -1,0 +1,47 @@
+<div class="col-md-5 khoianh">
+  <div class="anhto mb-4">
+    <a class="active" href="/images/<%=book.img%>" data-fancybox="thumb-img">
+      <img class="product-image" src="/images/<%=book.img%>" alt="<%=book.name%>img" style="width: 100%; height: 400px" />
+    </a>
+    <a href="/images/<%=book.img%>" data-fancybox="thumb-img"></a>
+  </div>
+  <div class="list-anhchitiet d-flex mb-4" style="margin-left: 2rem">
+    <img class="thumb-img thumb1 mr-3" src="/images/<%=book.img%>" class="img-fluid" alt="<%=book.name%>" />
+    <img class="thumb-img thumb2" src="/images/<%=book.img%>" class="img-fluid" alt="<%=book.name%>" />
+  </div>
+</div>
+<!-- Product information: name, cover price, save price, promotions, buy button.... -->
+<div class="col-md-7 khoithongtin">
+  <div class="row">
+    <div class="col-md-12 header">
+      <h4 class="ten"><%=book.name%></h4>
+     
+      <hr />
+    </div>
+    <div class="col-md-7">
+      <div class="gia">
+        <div class="giabia">Original price:<span class="giacu ml-2"><%= "Rs." + book.price %></span></div>
+        <div class="giaban">
+          Selling price at The Book Spot: <span class="giamoi font-weight-bold"><%= "Rs." + book.priceafterSale %></span
+          ><span class="donvitien"></span>
+        </div>
+        <%var priceSave =book.price - book.priceafterSale%>
+        <div class="tietkiem">
+          Save: <b><%= "Rs." + priceSave %></b> <span class="sale"><%="-"+book.percentSale +"%"%></span>
+        </div>
+      </div>
+     <div><p> </p></div>
+      <form action="/api/v1/carts/<%=book.id%>" method="post">
+      
+
+        <button class="nutmua btn w-100 text-uppercase">Add to Cart</button>
+        <p></p>
+        
+      </form>
+      <!-- <button class="nutmua btn w-100 text-uppercase">Rent book</button> -->
+        <p></p>
+      <!-- <a class="huongdanmuahang text-decoration-none" href="#">(Please see purchase guide)</a> -->
+    </div>
+
+  </div>
+</div>

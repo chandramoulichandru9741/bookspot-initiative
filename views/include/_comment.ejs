@@ -1,0 +1,15 @@
+<div class="item">
+    <div class="avt">
+            <img src="/images/default.jpg">
+    </div>
+    <div class="info">
+        <p>
+            <strong class="name"><%=comment.user.name%></strong>
+                        </p>
+        <p><label><i><%=comment.createdAt.toISOString().substr(0,20).split('T')%></i></label></p>
+        <div class="content">
+            <%=comment.content%>
+        </div>
+            
+    </div>
+</div>

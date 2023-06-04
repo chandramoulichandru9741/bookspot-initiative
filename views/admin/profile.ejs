@@ -1,0 +1,92 @@
+<%- include('../partials/_header') %>
+<div class="card shadow-lg mx-4 card-profile-bottom">
+    <div class="card-body p-3">
+      <div class="row gx-4">
+        <div class="col-auto">
+          <div class="avatar avatar-xl position-relative">
+            <img src="/images/team-3.jpg" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
+          </div>
+        </div>
+        <div class="col-auto my-auto">
+          <div class="h-100">
+            <h5 class="mb-1">
+              <%=user.name%>
+            </h5>
+            <p class="mb-0 font-weight-bold text-sm">
+              PES University
+            </p>
+          </div>
+        </div>
+       
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid py-4">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header pb-0">
+            <div class="d-flex align-items-center">
+              <p class="mb-0">Edit Profile</p>
+              <button class="btn btn-primary btn-sm ms-auto">Settings</button>
+            </div>
+          </div>
+          <div class="card-body">
+            <p class="text-uppercase text-sm">User Information</p>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="example-text-input" class="form-control-label">Username</label>
+                  <input class="form-control" type="text" value="<%=user.name%>">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="example-text-input" class="form-control-label">Email address</label>
+                  <input class="form-control" type="email" value="<%=user.email%>">
+                </div>
+              </div>
+            </div>
+            <hr class="horizontal dark">
+            <p class="text-uppercase text-sm">Contact Information</p>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="example-text-input" class="form-control-label">Address</label>
+                  <input class="form-control" type="text" value="PES University">
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="example-text-input" class="form-control-label">City</label>
+                  <input class="form-control" type="text" value="Banglore">
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="example-text-input" class="form-control-label">Country</label>
+                  <input class="form-control" type="text" value="India">
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="example-text-input" class="form-control-label">Postal code</label>
+                  <input class="form-control" type="text" value="560050">
+                </div>
+              </div>
+            </div>
+            <hr class="horizontal dark">
+            <p class="text-uppercase text-sm">About me</p>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="example-text-input" class="form-control-label">About me</label>
+                  <input class="form-control" type="text" value="I love read Book">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+   <%- include('../partials/_footer') %>

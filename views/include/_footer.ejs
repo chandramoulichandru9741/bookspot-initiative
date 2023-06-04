@@ -1,0 +1,88 @@
+<section class="abovefooter text-white" style="background-color: #1a94ff;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-sm-6">
+                <div class="dichvu d-flex align-items-center">
+                    <img src="/images/icon-books.png" alt="icon-books">
+                    <div class="noidung">
+                        <h3 class="tieude font-weight-bold font">MANY GOOD AND USEFUL BOOKS ONLY</h3>
+                        <p class="detail">Selected by The Book Spot</p>
+                    </div>
+                </div>
+            </div>
+           
+            
+            <div class="col-lg-3 col-sm-6">
+                <div class="dichvu d-flex align-items-center">
+                    <img src="/images/icon-return.png" alt="icon-return">
+                    <div class="noidung">
+                        <h3 class="tieude font-weight-bold font">QUICK REFUND</h3>
+                        <p class="detail">Faulty goods can be returned quickly</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- footer  -->
+
+
+<!-- nut cuon wool page -->
+<div class="fixed-bottom">
+    <div class="btn btn-warning float-right rounded-circle nutcuonlen" id="backtotop" href="#"
+        style="background:#1a94ff;"><i class="fa fa-chevron-up text-white"></i></div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="/js/main.js"></script>
+    <script type="text/javascript" src="/slick/slick.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+    <script type="text/javascript"
+        src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js" integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://sweetalert.js.org/assets/sweetalert/sweetalert.min.js"></script>
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="/js/payment.js"></script>
+    <script src="/js/loginForm.js"></script>
+    <script src="/js/signupForm.js"></script>
+    <script src="/js/updateMe.js" ></script>
+    <script src="/js/logout.js"></script>
+    <!-- Messenger Plugin chat Code -->
+    <div id="fb-root"></div>
+
+    <!-- Your Plugin chat code -->
+    <div id="fb-customer-chat" class="fb-customerchat">
+    </div>
+
+    <script>
+      var chatbox = document.getElementById('fb-customer-chat');
+      chatbox.setAttribute("page_id", "105817078737500");
+      chatbox.setAttribute("attribution", "biz_inbox");
+    </script>
+
+    <!-- Your SDK code -->
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          xfbml            : true,
+          version          : 'v14.0'
+        });
+      };
+
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    </script>
+</body>
+
+</html>

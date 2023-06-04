@@ -1,0 +1,90 @@
+  <%-include('../include/_header') %>
+  <%- include('../include/_cartgory') %>
+
+    <!-- breadcrumb  -->
+    <section class="breadcrumbbar">
+        <div class="container">
+            <ol class="breadcrumb mb-0 p-0 bg-transparent">
+                <li class="breadcrumb-item"><a href="/">Home page</a></li>
+                    <li class="breadcrumb-item active"><a href="#">Category</a></li>
+            </ol>
+        </div>
+    </section>
+
+  
+
+   
+
+    <!-- product block  -->
+    <section class="content my-4">
+        <div class="container">
+            <div class="noidung bg-white" style=" width: 100%;">
+                <!-- header of product block : tag(author), filter and sort -->
+                
+                    <div class="sort d-flex ml-auto">
+                        <div class="hien-thi">
+                            <label for="hienthi-select" class="label-select">Display</label>
+                            <select class="hienthi-select">
+                                <option value="3">3</option>
+                                <option value="6">6</option>
+                            </select>
+                        </div>
+                        <div class="sap-xep">
+                            <label for="sapxep-select" class="label-select">Sort</label>
+                            <select class="sapxep-select">
+                                <option value="moinhat">Latest</option>
+                                <option value="thap-cao">Price: Low - High</option>
+                                <option value="cao-thap">Price: High - Low</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- products  -->
+                <div class="items">
+                    <div class="row">    
+                             <!-- foreach -->
+                             <% books.forEach(function(book){ %>
+                                <div class="col-lg-3 col-md-4 col-xs-6 item ">
+                                <%-include('../include/_booktemplate',{book})%>
+                                </div>
+                              <% }); %>    
+                    </div>
+                </div>
+
+                <!-- pagination bar -->
+                <div class="pagination-bar my-3">
+                    <div class="row">
+                        <div class="col-12">
+                            <nav>
+                                <ul class="pagination justify-content-center">
+                                   
+                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#" aria-label="Next">
+                                            <span aria-hidden="true">&rsaquo;</span>
+                                            <span class="sr-only">Next</span>
+                                        </a>
+                                    </li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#" aria-label="Next">
+                                            <span aria-hidden="true">&raquo;</span>
+                                            <span class="sr-only">Next</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+
+                
+            </div>
+            <!--het div noidung-->
+        </div>
+        <!--het container-->
+    </section>
+    <!--het _1khoi-->
+
+    <%-include('../include/_footer') %>

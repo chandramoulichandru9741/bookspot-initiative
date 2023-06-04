@@ -1,0 +1,204 @@
+<title><%=title%></title>
+<link rel="apple-touch-icon" sizes="76x76" href="/images/apple-icon.png" />
+<link rel="icon" type="image/png" href="/images/icon.png" />
+<link rel="stylesheet" type="text/css" href="/css/order.css" id="LINK_2" />
+<div id="DIV_263"></div>
+<div id="DIV_264">
+  <div id="DIV_265">
+    <div id="DIV_266">
+      <h1 id="H1_267">Order</h1>
+      <div id="DIV_268">
+        <form method="post" action="" id="FORM_269">
+          <div id="DIV_270">
+            <div id="DIV_271">
+              <div id="DIV_272">
+                <div id="DIV_273">
+                  <fieldset id="FIELDSET_274">
+                    <legend id="LEGEND_275">Information line</legend>
+                    <h3 id="H3_276">Information line</h3>
+                    <p id="P_277">
+                      <span id="SPAN_278"></span>
+                    </p>
+                    <div id="DIV_279">
+                      <label id="LABEL_280">
+                        <span id="SPAN_281">First and last name: <b id="B_282">(*)</b></span>
+                      </label>
+                      <input
+                        name="don_ho_ten"
+                        type="text"
+                        maxlength="255"
+                        placeholder="First and last name"
+                        id="INPUT_283"
+                        class="fullname_order"
+                        required
+                      />
+                    </div>
+                    <div id="DIV_284">
+                      <label id="LABEL_285">
+                        <span id="SPAN_286">Phone: <b id="B_287">(*)</b></span>
+                      </label>
+                      <input
+                        name="don_so_dt"
+                        type="text"
+                        maxlength="255"
+                        placeholder="Phone number"
+                        id="INPUT_288"
+                        class="phone_order"
+                        required
+                      />
+                    </div>
+                    <div id="DIV_289"></div>
+                    <div id="DIV_290">
+                      <label id="LABEL_291">
+                        <span id="SPAN_292">Email: <b id="B_293">(*)</b></span>
+                      </label>
+                      <input
+                        name="don_mail"
+                        type="email"
+                        maxlength="255"
+                        placeholder="Email to receive order notifications"
+                        id="INPUT_294"
+                        class="email_order"
+                        required
+                      />
+                    </div>
+                    <div id="DIV_295"></div>
+                    <div id="DIV_296">
+                      <label id="LABEL_297">
+                        <span id="SPAN_298">Receiving address: <b id="B_299">(*)</b></span>
+                      </label>
+                      <input
+                        name="don_dia_chi"
+                        type="text"
+                        maxlength="255"
+                        placeholder="Address "
+                        id="INPUT_300"
+                        class="address_order"
+                        required
+                      />
+                    </div>
+                    <div id="DIV_394"></div> 
+                    <div id="DIV_395"></div>
+                    <div id="DIV_396">
+                      <label id="LABEL_397">
+                        <span id="SPAN_398">Book Type <b id="B_399">(*)</b></span>
+                      </label>
+                      <select name="hinh_thuc_tt" id="SELECT_400" class="booktype_order" required>
+                        <option id="OPTION_401">Choose Book Type</option>
+                        <option >Original Book</option>
+                        <option >Printed Book</option>
+                      </select>
+                    </div>
+
+                    <div id="DIV_385"></div>
+                     <div id="DIV_386">
+                      <label id="LABEL_387">
+                        <span id="SPAN_388">Pack: <b id="B_389">(*)</b></span>
+                      </label>
+                      <select name="dong_goi" id="SELECT_390" class="pack_order" required>
+                        <option id="OPTION_391">Choose package specification</option>
+                        <option value="1" id="OPTION_392">Leave the seal intact</option>
+                        <option value="2" id="OPTION_393">Plastic wrap</option>
+                      </select>
+                    </div> 
+                    <div id="DIV_394"></div> 
+                    <div id="DIV_395"></div>
+                    <div id="DIV_396">
+                      <label id="LABEL_397">
+                        <span id="SPAN_398">Payments: <b id="B_399">(*)</b></span>
+                      </label>
+                      <select name="hinh_thuc_tt" id="SELECT_400" class="payment_order" required>
+                        <option id="OPTION_401">Choose form</option>
+                        <option value="1" id="OPTION_402">Cod: Cash on Delivery</option>
+                        <option value="2" id="OPTION_403">Online Payment</option>
+                      </select>
+                    </div>
+                    <div id="DIV_404">
+                      <label for="billingAddress1" id="LABEL_405">
+                        <span id="SPAN_406">Note:</span>
+                      </label>
+                      <textarea
+                        name="ghi_chu"
+                        rows="3"
+                        cols="20"
+                        id="TEXTAREA_407"
+                        placeholder="Notes on orders"
+                        class="note_order"
+                      >
+                      </textarea>
+                    </div>
+                  </fieldset>
+                </div>
+                <div id="DIV_408"></div>
+
+                <input
+                  type="submit"
+                  name="tr_tranh_toan"
+                  data-book-id="<%=bookOrder.id%>"
+                  class="payment"
+                  id="INPUT_409"
+                  value="Order"
+                />
+              </div>
+             
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- -->
+
+<!--  -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="/js/main.js"></script>
+<script type="text/javascript" src="/slick/slick.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
+<script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"
+  integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+></script>
+<script src="https://sweetalert.js.org/assets/sweetalert/sweetalert.min.js"></script>
+<script src="https://js.stripe.com/v3/"></script>
+<script src="/js/payment.js"></script>
+<!-- Messenger Plugin chat Code -->
+<div id="fb-root"></div>
+
+<!-- Your Plugin chat code -->
+<div id="fb-customer-chat" class="fb-customerchat"></div>
+
+<script>
+  var chatbox = document.getElementById('fb-customer-chat');
+  chatbox.setAttribute('page_id', '105817078737500');
+  chatbox.setAttribute('attribution', 'biz_inbox');
+</script>
+
+<!-- Your SDK code -->
+<script>
+  window.fbAsyncInit = function () {
+    FB.init({
+      xfbml: true,
+      version: 'v14.0',
+    });
+  };
+
+  (function (d, s, id) {
+    var js,
+      fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s);
+    js.id = id;
+    js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
+    fjs.parentNode.insertBefore(js, fjs);
+  })(document, 'script', 'facebook-jssdk');
+</script>
